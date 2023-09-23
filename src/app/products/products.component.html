@@ -1,0 +1,39 @@
+
+ <div>
+   <app-search (searchtextchanged)="onsearchtextenterd($event)"></app-search>
+ </div>
+ <div> 
+   <!-- Custom Property Binding -->
+   <app-filter 
+   [All]="gettotalproducts()"
+   [Free]="getFreeProducts()"
+   [Premuim]="getPremuimProducts()"
+   (FilterRadioButtonSelectionchange)="onfilterButtonSelectionchanged($event)">
+   </app-filter>
+</div>
+ <ng-container *ngFor="let product of products">
+   <div  *ngIf="productcountRadioButton =='All' || productcountRadioButton ==product.Available "> 
+      <div *ngIf="searchtext=='' || product.name.toLowerCase().includes(searchtext.toLowerCase()) ">
+         <!-- <p>{{i}}</p> -->
+         <div class="product-container" [ngStyle]="{backgroundColor: product.Available === 'Available'?'#D5F5E3' : '#FADBD8'}">
+            <div class="image-container"><img [src]="product.image" style="max-height: 50px; max-width: 50px;" > </div>
+            <div>
+               <div class="name-container"><h5>{{product.name}}</h5></div>
+               <div class="detailContainer">
+                  <div class="details" [ngStyle]="{color: product.Available === 'Available'?'green' : 'red'}"> {{product.Available}}</div>
+                  <div class="details"><b>Price : ${{product.price}}</b></div>
+                  <div class="details"><b>Color : {{product.color}}</b></div>
+               </div>
+            </div>
+            <div class="options">      
+               <button class="btn btn-success" >Show Detaile</button>'
+               <button class="btn btn-warning" *ngIf="product.Available == 'Available';else notifyme">Buy Now</button>
+               <ng-template #notifyme>
+                  <button class="btn btn-danger">Notify me</button>
+               </ng-template>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+</ng-container>

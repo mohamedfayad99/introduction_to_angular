@@ -1,0 +1,16 @@
+.notification
+{
+    text-align: center;
+    background-color: rgb(210, 108, 30);
+    margin: auto;
+    border-radius: 10px;
+    font-size: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.btn{
+margin-left: 150px;
+color: rgb(212, 255, 0);
+font-size: 30px;
+}
+

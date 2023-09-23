@@ -1,0 +1,11 @@
+.filter{
+    margin: 10px 20px ;
+    text-align: center;
+}
+.filter-text{
+    font: caption ;
+    font-size: 20px;
+}
+input{
+    margin-left: 10px;
+}
